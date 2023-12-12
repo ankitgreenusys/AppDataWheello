@@ -14,14 +14,14 @@ const Index = (props) => {
 
   return (
     <nav className="navbar bg-dark border-bottom border-body mb-4">
-      <div className="container-fluid">
+      <div className="container-fluid mx-3">
         <a className="navbar-brand" href="#">
           <img
             src="/images/wheeloo logo.svg"
             alt="Logo"
-            className="d-inline-block align-text-top"
-            height={10}
-            width={100}
+            className="d-inline-block align-text-top "
+            height={40}
+            width={130}
           />
         </a>
         {props.user ? (

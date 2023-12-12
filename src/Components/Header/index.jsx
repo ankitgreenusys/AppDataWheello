@@ -3,7 +3,7 @@ import "./Styles.css";
 
 const Index = (props) => {
   return (
-    <nav class="navbar bg-body-tertiary">
+    <nav class="navbar bg-dark border-bottom border-body">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img

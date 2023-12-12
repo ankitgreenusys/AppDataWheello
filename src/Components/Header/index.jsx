@@ -9,11 +9,8 @@ const Index = (props) => {
           <img
             src="/images/wheeloo logo.svg"
             alt="Logo"
-            width="30"
-            height="24"
             class="d-inline-block align-text-top"
           />
-          Bootstrap
         </a>
       </div>
     </nav>

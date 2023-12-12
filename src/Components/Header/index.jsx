@@ -20,6 +20,8 @@ const Index = (props) => {
             src="/images/wheeloo logo.svg"
             alt="Logo"
             className="d-inline-block align-text-top"
+            height={10}
+            width={100}
           />
         </a>
         {props.user ? (

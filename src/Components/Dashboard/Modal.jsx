@@ -12,7 +12,7 @@ const Modal = (props) => {
     })
       .then((res) => res.blob())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         const url = window.URL.createObjectURL(new Blob([res]));
         const link = document.createElement("a");
         link.href = url;
@@ -28,39 +28,39 @@ const Modal = (props) => {
   return (
     <div>
       <div
-        class="modal fade"
+        className="modal fade"
         id="imagemodal"
         tabIndex="-1"
         aria-labelledby="imagemodal"
         aria-hidden="true"
       >
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="imagemodal">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h1 className="modal-title fs-5" id="imagemodal">
                 {props.modaldta.title}
               </h1>
               <button
                 type="button"
-                class="btn-close"
+                className="btn-close"
                 data-bs-dismiss="modal"
                 aria-label="Close"
               ></button>
             </div>
-            <div class="modal-body text-center">
+            <div className="modal-body text-center">
               <img
-                class="img-fluid"
+                className="img-fluid"
                 src={BaseURL + props.modaldta.img}
                 alt="Failed to load image"
               />
             </div>
-            <div class="modal-footer">
-              <button class="btn btn-primary" onClick={download}>
+            <div className="modal-footer">
+              <button className="btn btn-primary" onClick={download}>
                 Download
               </button>
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close

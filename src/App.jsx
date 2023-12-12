@@ -9,13 +9,22 @@ import Profile from "./Components/Profile";
 import Dashboard from "./Components/Dashboard";
 
 function App() {
+  const [user, setuser] = React.useState(null);
+
+  React.useEffect(() => {
+    if (localStorage.getItem("token")) {
+      setuser(true);
+    }
+  }, []);
+
   return (
     <>
-      <Header />
+      <Header user={user} setuser={setuser} />
       <Routes>
         <Route path="/" element={<Dashboard />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login setuser={setuser} />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="*" element={<Dashboard />} />
       </Routes>
       {/* <Footer /> */}
     </>

@@ -24,7 +24,7 @@ const Index = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         if (res.error) {
           alert(res.error);
           return;
@@ -38,8 +38,6 @@ const Index = () => {
 
   const veiwmodal = (title, img) => {
     setmodaldta({ title, img });
-    console.log({ title, img });
-    console.log(document.getElementById("imagemodal"));
     document.getElementById("imagemodalbtn").click();
   };
 
@@ -114,7 +112,7 @@ const Index = () => {
       <button
         type="button"
         id="imagemodalbtn"
-        class="btn btn-primary visually-hidden"
+        className="btn btn-primary visually-hidden"
         data-bs-toggle="modal"
         data-bs-target="#imagemodal"
       >

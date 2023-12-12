@@ -1,9 +1,11 @@
 import React from "react";
 import "./Styles.css";
+import { useNavigate } from "react-router-dom";
 
 import BaseURL from "../../apis/BaseURL";
 
-const Index = () => {
+const Index = (props) => {
+  const navigate = useNavigate();
   const [fdata, setFdata] = React.useState({
     email: "",
     password: "",
@@ -14,7 +16,7 @@ const Index = () => {
   };
 
   const handleSubmit = (e) => {
-    console.log(fdata)
+    // console.log(fdata);
     e.preventDefault();
     fetch(`${BaseURL}admin/login`, {
       method: "POST",
@@ -30,7 +32,8 @@ const Index = () => {
           return;
         }
         localStorage.setItem("token", res.token);
-        window.location.href = "/";
+        props.setuser(true);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

@@ -36,8 +36,9 @@ const Index = () => {
       });
   }, []);
 
-  const veiwmodal = (title, img) => {
-    setmodaldta({ title, img });
+  const veiwmodal = (title, name, img) => {
+    setmodaldta({ title, name, img });
+    console.log({ title, name, img });
     document.getElementById("imagemodalbtn").click();
   };
 
@@ -50,7 +51,13 @@ const Index = () => {
         <td
           colSpan={3}
           className="pointer"
-          onClick={() => veiwmodal("RC Image", item.rcImage.split("\\")[2])}
+          onClick={() =>
+            veiwmodal(
+              "RC Image",
+              item.vehicleOwner.name,
+              item.rcImage.split("\\")[2]
+            )
+          }
         >
           {item.vehicleNumber}
         </td>
@@ -61,6 +68,7 @@ const Index = () => {
               onClick={() =>
                 veiwmodal(
                   "Hypothetication RC",
+                  item.vehicleOwner.name,
                   item.BankNOCImage.split("\\")[2]
                 )
               }
@@ -76,7 +84,11 @@ const Index = () => {
             <span
               className="text-success pointer"
               onClick={() =>
-                veiwmodal("Insurance", item.insuranceImage.split("\\")[2])
+                veiwmodal(
+                  "Insurance",
+                  item.vehicleOwner.name,
+                  item.insuranceImage.split("\\")[2]
+                )
               }
             >
               View
@@ -92,6 +104,7 @@ const Index = () => {
               onClick={() =>
                 veiwmodal(
                   "Other Document ",
+                  item.vehicleOwner.name,
                   item.otherDocumentImage.split("\\")[2]
                 )
               }

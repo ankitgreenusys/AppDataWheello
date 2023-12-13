@@ -1,28 +1,11 @@
 import React from "react";
 import BaseURL from "../../apis/BaseURL";
+import { saveAs } from "file-saver";
 
 const Modal = (props) => {
   const download = () => {
-    fetch(BaseURL + props.modaldta.img, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
-      .then((res) => res.blob())
-      .then((res) => {
-        // console.log(res);
-        const url = window.URL.createObjectURL(new Blob([res]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", props.modaldta.title);
-        document.body.appendChild(link);
-        link.click();
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    const link = BaseURL + props.modaldta.img;
+    saveAs(link, props.modaldta.title + "of" + props.modaldta.name);
   };
 
   return (
@@ -55,7 +38,7 @@ const Modal = (props) => {
               />
             </div>
             <div className="modal-footer">
-              <button className="btn btn-primary" onClick={download}>
+              <button onClick={download} className="btn btn-primary">
                 Download
               </button>
               <button

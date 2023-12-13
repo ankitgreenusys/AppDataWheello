@@ -27,13 +27,13 @@ const Index = (props) => {
     })
       .then((res) => res.json())
       .then((res) => {
-        if (res.error) {
-          alert(res.error);
-          return;
+        if (res.token) {
+          localStorage.setItem("token", res.token);
+          props.setuser(true);
+          navigate("/");
+        } else {
+          alert("Invalid Credentials");
         }
-        localStorage.setItem("token", res.token);
-        props.setuser(true);
-        navigate("/");
       })
       .catch((err) => {
         console.log(err);
